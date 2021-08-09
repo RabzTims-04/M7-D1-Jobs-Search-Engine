@@ -76,6 +76,7 @@ class Home extends Component {
         try {
             const response = await fetch(`https://remotive.io/api/remote-jobs?category=${this.state.categorySearch}`)
             const data = await response.json()
+            this.props.category(data.jobs)
             console.log(data.jobs);
             if(response.ok){
                 this.setState({
